@@ -1,14 +1,13 @@
-from odoo import models, fields
-
-class ResPartner(models.Model)
-
-    nivel_cliente = fields.Selection(
-        [
-            ('bajo', 'Bajo'),
-            ('medio', 'Medio')
-            ('alto', 'Alto')
-    
-        ],
-        string='Nivel de cliente'
-    )
-    
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_inherit_nivel" model="ir.ui.view">
+        <field name="name">res.partner.form.nivel.cliente</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group" position="inside">
+                <field name="nivel_cliente"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
